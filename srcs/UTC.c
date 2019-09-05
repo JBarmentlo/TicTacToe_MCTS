@@ -7,11 +7,8 @@ double	UCB1(int n_dad, int n_son, int wins_son)
 {
 	if (n_son == 0)
 		return (1000000000000);
-	return ((double)wins_son / n_son + C_EXPLO * (sqrt(log(n_dad) / n_son)));
+	return ((double)wins_son / (2 * n_son) + C_EXPLO * (sqrt(log(n_dad) / n_son))); //n_dad should be > 0 because n_son is > 0
 }
-
-
-
 
 int	morph(int move, int morph_index)
 {
@@ -19,7 +16,6 @@ int	morph(int move, int morph_index)
 
 	return (transformations[morph_index][move]);
 }
-
 
 int	choose_move(char *board, int turn)
 {
@@ -31,8 +27,6 @@ int	choose_move(char *board, int turn)
 	long double tmp = 0;
 	long double res = 0;
 
-	if (!nb_now)
-		nb_now++;
 	int next_mov = 0;
 	int i = -1;
 	while (!(is_valid_move(board, next_mov)))
@@ -42,7 +36,7 @@ int	choose_move(char *board, int turn)
 	{
 		if (future[i] != 0)
 		{
-			res = explo_func(board, nb_now, db(future[i])[1], db(future[i])[0]);
+			res = UCB1(nb_now, db(future[i])[1], db(future[i])[0]);
             //
 			if ((tmp < res))
 			{
