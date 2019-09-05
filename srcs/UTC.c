@@ -1,9 +1,12 @@
 #include "head.h"
+#include <limits.h>
 
 //wins_son is doubled to allow storage of 1/2 for draws
 //n_dad number of visits of parent node, n_son for child node being considered;
 double	UCB1(int n_dad, int n_son, int wins_son)
 {
+	if (n_son == 0)
+		return (1000000000000);
 	return ((double)wins_son / n_son + C_EXPLO * (sqrt(log(n_dad) / n_son)));
 }
 
