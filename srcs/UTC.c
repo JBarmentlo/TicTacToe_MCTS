@@ -28,18 +28,19 @@ int	choose_move(char *board, int turn)
 	int i = -1;
 	while (!(is_valid_move(board, next_mov)))
 		next_mov++;
-	ft_print_board(board);
+//	ft_print_board(board);
 	while (++i < 9)
 	{
 		if (future[i] != 0)
 		{
 			res = UCB1(nb_now, db(future[i])[1], db(future[i])[0]);
-			printf("move : %d, UCB : %d\n", i, res);
+//			printf("move : %d, UCB : %.1f\n", i, res);
             if (res != 1000000000000.0)
 				is_leaf = 0;
 			if ((tmp < res))
 			{
-				res = tmp;
+//				printf("new_next_move  XX: %d\n", i);
+				tmp = res;
 				next_mov = i;
 			}
 		}
@@ -58,13 +59,30 @@ char simulation(char *board, int turn)
 
     if (check_winner(board) != '.' || turn > 8)
         return(check_winner(board));
-	printf("simulation\n");
     move = rand_move(board);
     player = ((turn % 2) ? 'O' : 'X');
     do_move(board, move, player);
     out = simulation(board, turn + 1);
     do_move(board, move, PLAY_NONE);  
     return (out);
+}
+
+int	MCTS_call(char *board, int turn)
+{
+	char	winner;
+	int		state;
+	int		iterations;
+
+	iterations = 0;
+	while (iterations < ITERATION_PER_TURN)
+	{
+		winner = MCTS(board, turn);
+		state = smallest_value(board);
+		db(state)[0] += win_score_c(winner, turn);
+		db(state)[1] += 1;
+		iterations++;
+	}
+	return (choose_move(board, turn));
 }
 
 char	MCTS(char *board, int turn)
@@ -77,17 +95,19 @@ char	MCTS(char *board, int turn)
 	int		move;
 	int		state;
 
-	printf("MCTS\n");
 	player = turn % 2 ?  'O' : 'X';
 	move = choose_move(board, turn);
 	if (move == -1)
 	{
+//		printf("simulation\n");
 		move = rand_move(board);
 		do_move(board, move, player);
+//		ft_print_board(board);
 		winner = simulation(board, turn + 1);
 	}
 	else
 	{
+//		printf("MCTS\n");
 		do_move(board, move, player);
 		winner = MCTS(board, turn + 1);
 	}

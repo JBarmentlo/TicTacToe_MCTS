@@ -15,12 +15,13 @@
 # define PLAY_TWO		'O'
 # define PLAY_NONE		'.'
 
-# define WIN          1
-# define DRAW         0
-# define LOSS         -1
+# define WIN          2
+# define DRAW         1
+# define LOSS         0
 
+# define ITERATION_PER_TURN	10
 
-#define C_EXPLO         1.41421356237
+#define C_EXPLO         2.41421356237
 
 # define PURPLE			"\033[95m"
 # define BLUE			"\033[94m"
@@ -57,6 +58,7 @@ int			rand_move(char *board);
 int			choose_move(char *board, int turn);
 char	MCTS(char *board, int turn);
 char	MCTS_loud(char *board, int turn);
+int		MCTS_call(char *board, int turn);
 
 
 
