@@ -104,13 +104,20 @@ int *db(int i)
     return (&db[2 * i]);
 }
 
-int win_score(char *board)
+int win_score(char *board, int turn)
 {
     char    winner;
 
     winner = check_winner(board);
     if (winner == '.')
         return (DRAW);
+	if (turn % 2)
+	{
+		if (winner == 'O')
+       		return (WIN);
+	    if (winner == 'X')
+    	    return (LOSS);
+	}
     if (winner == 'X')
         return (WIN);
     if (winner == 'O')
@@ -118,13 +125,33 @@ int win_score(char *board)
     return (0);
 }
 
-int win_score_c(char winner)
+int win_score_c(char winner, int turn)
 {
     if (winner == '.')
         return (DRAW);
+	if (turn % 2)
+	{
+		if (winner == 'O')
+       		return (WIN);
+	    if (winner == 'X')
+    	    return (LOSS);
+	}
     if (winner == 'X')
         return (WIN);
     if (winner == 'O')
         return (LOSS);
     return (0);
+}
+
+//will run forever if no possible move !!!
+int rand_move(char *board)
+{
+    int move;
+
+    move = rand() % 9;
+    while (board[move] != '.')
+    {
+        move = rand() % 9;
+    }
+    return (move);
 }

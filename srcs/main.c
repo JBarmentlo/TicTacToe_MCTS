@@ -2,22 +2,30 @@
 
 int main(void) {
 	char *board;
-	int ite = 400;
+	int ite = 2;
 
     board = init_board();
 
+	int turn = 0;
+	ft_print_board(board);
+	printf("moveee: %d\n", choose_move(board, turn));
+	/*
+	while (turn < 9)
+	{
+		do_move(board, choose_move(board, 0), 'X');
+		ft_print_board(board);
+		do_move_from_key(board, 'O');
+		ft_print_board(board);
+		turn++;
+		turn++;
+	}
+*/
 	while (ite--)
 	{
- 	   board = init_board();
-		ft_tictactoe(board, 1);
+		MCTS(board, 0);
+		printf("\n");
 	}
-    ite = 10;
-    while (ite--)
-	{
- 	   board = init_board();
-		ft_tictactoe(board, 0);
-	}
-
+	MCTS_loud(board, 0);
 	ite = -1;
 	while (++ite < 17141)
 	{

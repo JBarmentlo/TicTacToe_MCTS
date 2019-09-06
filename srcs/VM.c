@@ -14,7 +14,8 @@ void ft_tictactoe(char *board, int quiet)
 		}
 	else
     {
-		beau_gosse(board, turn, quiet);
+		printf("bogosse gone\n");
+		//beau_gosse(board, turn, quiet);
     }
 	//ft_print_board(board);
 	// if (check_winner(board) == PLAY_ONE)

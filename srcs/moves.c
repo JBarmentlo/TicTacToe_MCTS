@@ -32,34 +32,9 @@ int *futures(char *board, int turns)
     return (futures);
 }
 
-//will run forever if no possible move !!!
-int rand_move(char *board)
-{
-    int move;
 
-    move = rand() % 9;
-    while (board[move] != '.')
-    {
-        move = rand() % 9;
-    }
-    return (move);
-}
 
-int simulation(char *board, int turn)
-{
-    char    player;
-    int     move;
-    int     out;
 
-    if (check_winner(board) != '.' || turn > 8)
-        return(win_score(board));
-    move = rand_move(board);
-    player = ((turn % 2) ? 'O' : 'X');
-    do_move(board, move, player);
-    out = simulation(board, turn + 1);
-    do_move(board, move, PLAY_NONE);  
-    return (out);
-}
 
 
 /*

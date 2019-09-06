@@ -49,7 +49,15 @@ void    add_win(char winner, char* board, int depth);
 int         smallest_morph(char *board);
 int			trinary_board(char *board, char *tranfo);
 int			trinary_board_i(char *board, int morph_index);
-int 		win_score_c(char winner);
+int 		win_score_c(char winner, int turn);
+int 		win_score(char *board, int turn);
+
+int			rand_move(char *board);
+
+int			choose_move(char *board, int turn);
+char	MCTS(char *board, int turn);
+char	MCTS_loud(char *board, int turn);
+
 
 
 long double explo_func(char *board, int nb_now, int nb_next, int win_next);
