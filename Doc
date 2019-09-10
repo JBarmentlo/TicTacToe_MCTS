@@ -18,7 +18,8 @@ We've also considered that X always starts, as the game is also invariant by fli
 There are 8952 possible states, 6045 if we assume X plays first and 849 after reduction through symmetries and rotations.
 
 questions :
-optimal C
+optimal C, for how many iterations ?
 iterations_per turn
 child node priority ?
 learning from root vs what i do now ?
+how to rate all of this, rate against our trained AI, or against all possible games (9! is pretty big) ?
