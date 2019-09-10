@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "head.h"
 
-char  *init_board(void)
+char    *init_board(void)
 {
     char    *out;
     int     i;
@@ -18,9 +18,35 @@ char  *init_board(void)
     return (out);
 }
 
-void    do_move(char *board, int pos, char player)
+char    *copy_board(char *board)
 {
-    board[pos] = player;
+    char *out;
+    int  i;
+
+    out = malloc(9);
+    i = 0;
+    while (i < 9)
+    {
+        out[i] = board[i];
+        i++;
+    }
+    return (out);
+}
+
+int     *db(int i)
+{
+    static int db[2 * 17141];
+    return (&db[2 * i]);
+}
+
+void    print_db(void)
+{
+	int	ite = -1;
+	while (++ite < 17141)
+	{
+		if (db(ite)[1])
+			printf("%d= %d | %d\n", ite, db(ite)[0], db(ite)[1]);
+	}
 }
 
 char    check_winner(const char *board)
@@ -48,35 +74,6 @@ char    check_winner(const char *board)
     return (PLAY_NONE);
 }
 
-void     do_move_from_key(char *board, char player)
-{
-    int     in;
-    int     pos;
-
-	in = 0;
-	while ((in < '1' - 48 || in > '9' - 48) || is_valid_move(board, pos) == 0)
-    {
-		in = getchar() - 48;
-	    pos = (in - 1) % 3 + 3 * (2 - (in - 1) / 3);
-    }
-	do_move(board, pos, player);
-}
-
-char *copy_board(char *board)
-{
-    char *out;
-    int  i;
-
-    out = malloc(9);
-    i = 0;
-    while (i < 9)
-    {
-        out[i] = board[i];
-        i++;
-    }
-    return (out);
-}
-
 void    add_win(char winner, char* board, int depth)
 {
     if (winner == '.')
@@ -98,13 +95,7 @@ void    add_win(char winner, char* board, int depth)
     db(smallest_value(board))[1] += 1;
 }
 
-int *db(int i)
-{
-    static int db[2 * 17141];
-    return (&db[2 * i]);
-}
-
-int win_score(char *board, int turn)
+int     win_score(char *board, int turn)
 {
     char    winner;
 
@@ -125,7 +116,7 @@ int win_score(char *board, int turn)
     return (0);
 }
 
-int win_score_c(char winner, int turn)
+int     win_score_c(char winner, int turn)
 {
     if (winner == '.')
         return (DRAW);
@@ -141,17 +132,4 @@ int win_score_c(char winner, int turn)
     if (winner == 'O')
         return (LOSS);
     return (0);
-}
-
-//will run forever if no possible move !!!
-int rand_move(char *board)
-{
-    int move;
-
-    move = rand() % 9;
-    while (board[move] != '.')
-    {
-        move = rand() % 9;
-    }
-    return (move);
 }

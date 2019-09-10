@@ -35,6 +35,7 @@
 
 
 void	ft_print_board(char *str);
+void print_db(void);
 void	ft_tictactoe(char *board, int quiet);
 int     *futures(char *board, int turns);
 char     beau_gosse(char *board, int depth, int quiet);

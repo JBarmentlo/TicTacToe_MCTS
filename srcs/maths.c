@@ -1,7 +1,7 @@
 #include "head.h"
 #include "maths.h"
 
-int			base_conv(char c)
+int     base_conv(char c)
 {
 	if (c == PLAY_NONE)
 		return (0);
@@ -12,7 +12,7 @@ int			base_conv(char c)
 	return (-1);
 }
 
-int			trinary_board(char *board, char *tranfo)
+int		trinary_board(char *board, char *tranfo)
 {
 	int		result = 0;
 	int		i = -1;
@@ -25,8 +25,7 @@ int			trinary_board(char *board, char *tranfo)
 	return (result);
 }
 
-
-int			trinary_board_i(char *board, int morph_index)
+int		trinary_board_i(char *board, int morph_index)
 {
     char *transformations[] = transformationes;
 	int		result = 0;
@@ -40,7 +39,7 @@ int			trinary_board_i(char *board, int morph_index)
 	return (result);
 }
 
-int         smallest_value(char *board)
+int     smallest_value(char *board)
 {
     int result;
     int tampoun;
@@ -59,7 +58,7 @@ int         smallest_value(char *board)
     return (result);
 }
 
-int         smallest_morph(char *board)
+int     smallest_morph(char *board)
 {
     int result;
     int tampoun;
@@ -83,7 +82,7 @@ int         smallest_morph(char *board)
     return (morph_index);
 }
 
-/*
+//will print the combination of two transformations on terminal.
 void    print_rots(char *first, char *second)
 {
     int i;
@@ -95,19 +94,3 @@ void    print_rots(char *first, char *second)
         i++;
     }
 }
-*/
-/*
-while (rotation)
-	while (mirror)
-		while (juxtaposition)
-			check_num
-return (smallest)
-*/
-
-/*
-XX0
-XX0
-00X
-
-874961235
-*/

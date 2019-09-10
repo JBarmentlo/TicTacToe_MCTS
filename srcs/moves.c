@@ -1,6 +1,5 @@
 #include "head.h"
 
-
 void    reset_futures(int *futures)
 {
     int i = 0;
@@ -11,7 +10,7 @@ void    reset_futures(int *futures)
     }
 }
 
-int *futures(char *board, int turns)
+int     *futures(char *board, int turns)
 {
     static int  futures[9];
     char        player;
@@ -32,41 +31,41 @@ int *futures(char *board, int turns)
     return (futures);
 }
 
-
-
-
-
-
-/*
-void    reset(double *tab)
+int     rand_move(char *board)
 {
-    int i;
+    int move;
+    int safe;
 
-    i = 0;
-    while (i < 9)
+    move = rand() % 9;
+    safe = 100000;
+    while (board[move] != '.')
     {
-        tab[i] = -1;
-        i++;
+        move = rand() % 9;
+        safe--;
+        if (!safe)
+        {
+            printf("Infinite loop in rand_move. board: %.9s", board);
+            return (0);
+        }
     }
+    return (move);
 }
-*/
-// double *explore(char *board, int state, int turns, int *db)
-// {
-//     static double   out[9];
-//     const int       *future;
-//     int             i;
 
-//     reset(out);
-//     future = futures(board, turns);
+void    do_move(char *board, int pos, char player)
+{
+    board[pos] = player;
+}
 
-//     i = 0;
-//     while (i < 9)
-//     {
-//         if (future[i])
-//         {
-//             out[i] = db(future[i])[0] / db(future[i])[1] + C_EXPLO * sqrt(log(db(state)[1]) / db(future[i])[1])
-//         }
-//         i++;
-//     }
-//     return (out);
-// }
+void     do_move_from_key(char *board, char player)
+{
+    int     in;
+    int     pos;
+
+	in = 0;
+	while ((in < '1' - 48 || in > '9' - 48) || is_valid_move(board, pos) == 0)
+    {
+		in = getchar() - 48;
+	    pos = (in - 1) % 3 + 3 * (2 - (in - 1) / 3);
+    }
+	do_move(board, pos, player);
+}
