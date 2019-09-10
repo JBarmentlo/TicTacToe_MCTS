@@ -3,11 +3,13 @@
 
 //wins_son is doubled to allow storage of 1/2 for draws
 //n_dad number of visits of parent node, n_son for child node being considered;
+//NB ! division by two are because the scores for wins and draws are stored as 2 and 1 but should be 1 and 1/2
+//our db only allows for ints so here we are
 double	UCB1(int n_dad, int n_son, int wins_son)
 {
 	if (n_son == 0)
 		return (1000000000000.0);
-	return ((double)wins_son / (2 * n_son) + C_EXPLO * (sqrt(log(n_dad) / n_son))); //n_dad should be > 0 because n_son is > 0
+	return ((double)wins_son / (2 * n_son) + C_EXPLO * (sqrt(2 * log(n_dad / 2) / n_son))); //n_dad should be > 0 because n_son is > 0
 }
 
 // chooses move with highest UCB1, if leaf node returns -1 to provoke a random simulation

@@ -8,9 +8,9 @@
 
 #define sym1rot1 "036147258"
 #define sym2rot1 "852741630"
-int			base_conv(char c);
 
 #define transformationes {identity, rot1, rot2, rot3, sym1, sym2, sym1rot1, sym2rot1}
 
 void    print_rots(char *first, char *second);
-int         smallest_value(char *board);
+int     smallest_value(char *board);
+int		base_conv(char c);
