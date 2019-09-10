@@ -10,12 +10,8 @@ double	UCB1(int n_dad, int n_son, int wins_son)
 	return ((double)wins_son / (2 * n_son) + C_EXPLO * (sqrt(log(n_dad) / n_son))); //n_dad should be > 0 because n_son is > 0
 }
 
-int		morph(int move, int morph_index)
-{
-	char *transformations[] = transformationes;
-	return (transformations[morph_index][move] - 48);
-}
-
+// chooses move with highest UCB1, if leaf node returns -1 to provoke a random simulation
+// unexplored child nodes are considered highest priority in our model
 int		choose_move(char *board, int turn)
 {
 	int	*future = futures(board, turn);
@@ -64,6 +60,7 @@ char 	simulation(char *board, int turn)
     return (out);
 }
 
+// runs the monte carlo search algorithm ITERATIONS_PER_TURN times with the current board as root state then returns a move 
 int		MCTS_call(char *board, int turn)
 {
 	char	winner;

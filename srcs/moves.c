@@ -10,6 +10,9 @@ void    reset_futures(int *futures)
     }
 }
 
+// returns a tab of size 9 (9 possible moves)
+// tab[i] == 0  means cant play on square i
+// else tab[i] contains the state number obtained after playing i
 int     *futures(char *board, int turns)
 {
     static int  futures[9];
