@@ -55,6 +55,18 @@ void    print_db(void)
 	}
 }
 
+int     count_non_zeroes_db(void)
+{
+    int	ite = -1;
+    int count = 0;
+	while (++ite < 17141)
+	{
+		if (db(ite)[1])
+			count++;
+	}
+    return (count);
+}
+
 char    check_winner(const char *board)
 {
     int i;

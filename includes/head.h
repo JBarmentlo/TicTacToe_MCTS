@@ -8,9 +8,6 @@
 #include <stdio.h>
 #include "maths.h"
 
-# define NB_AI				2
-
-
 # define PLAY_ONE			'X'
 # define PLAY_TWO			'O'
 # define PLAY_NONE			'.'
@@ -21,7 +18,7 @@
 
 # define ITERATION_PER_TURN	10
 
-#define C_EXPLO         	2.41421356237
+#define C_EXPLO         	1.41421356237
 
 # define PURPLE				"\033[95m"
 # define BLUE				"\033[94m"
@@ -60,8 +57,15 @@ int		MCTS_call(char *board, int turn);
 
 int     *db(int i);
 void	print_db(void);
+int     count_non_zeroes_db(void);
 void 	print_victory(void);
 void 	print_defeat(void);
+
+void	play_against_AI(void);
+void	show_game(void);
+void	learn(int n);
+
+void print_state_space_info(void);
 
 #define is_valid_move(board, pos) board[pos] == PLAY_NONE
 

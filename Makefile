@@ -1,5 +1,5 @@
 NAME=TicTacToe
-SOURCES=main.c maths.c moves.c print.c UTC.c utils.c VM.c
+SOURCES=main.c maths.c moves.c print.c UTC.c utils.c VM.c eval_test.c
 INCLUDES=head.h maths.h
 OUT= $(addprefix out/, $(SOURCES:.c=.o))
 SRCS= $(addprefix srcs/, $(SOURCES))

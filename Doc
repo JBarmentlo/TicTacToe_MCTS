@@ -14,6 +14,8 @@ matters. The issue is we need to recalculate the hash of child nodes every time.
 Our "hash-table" stores the information relative to a state at table[smallest_value(state)]. Smallest_value reads the board like a 
 number in base 3 (base : { empty, 'X' and 'O'}), it returns the smallest value it can obtain for a given board by rotating or mirroring it.
 
+We've also considered that X always starts, as the game is also invariant by flipping X and O (on the board and who's turn it is), reducing the state space by up to 50%.
+There are 8952 possible states, 6045 if we assume X plays first and 849 after reduction through symmetries and rotations.
 
 questions :
 optimal C
