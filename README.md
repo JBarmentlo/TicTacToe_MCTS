@@ -22,7 +22,7 @@ There are 8952 possible states, 6045 if we assume X plays first and 849 after re
 
 questions :
 optimal C, for how many iterations ?
-iterations_per turn
+iterations_per turn ?
 child node priority ?
 learning from root vs what i do now ?
 how to rate all of this, rate against our trained AI, or against all possible games (9! is pretty big) ?
