@@ -1,1 +1,2 @@
-for 10000 games times range between 15.68 and 16.18. 0.8 0.13 system (5 attempts)
+for 10000 games runtime averages 15.9s user 0.10 system (5 attempts)
+with const qualifiers 14.2s user 0.10 system

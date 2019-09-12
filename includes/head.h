@@ -32,23 +32,23 @@
 
 
 char    *init_board(void);
-char    *copy_board(char *board);
-void	ft_print_board(char *str);
+char    *copy_board(const char *board);
+void	ft_print_board(const char *str);
 
 char    check_winner(const char *board);
 void    do_move_from_key(char *board, char player);
 void    do_move(char *board, int pos, char player);
 
-int     smallest_morph(char *board);
-int		trinary_board(char *board, char *tranfo);
-int		trinary_board_i(char *board, int morph_index);
+int     smallest_morph(const char *board);
+int		trinary_board(const char *board, const char *tranfo);
+int		trinary_board_i(const char *board, int morph_index);
 
 int 	win_score_c(char winner, int turn);
-int 	win_score(char *board, int turn);
-void    add_win(char winner, char* board, int depth);
+int 	win_score(const char *board, int turn);
+void    add_win(char winner, const char* board, int depth);
 
 int     *futures(char *board, int turns);
-int		rand_move(char *board);
+int		rand_move(const char *board);
 int		choose_move(char *board, int turn);
 
 char	MCTS(char *board, int turn);

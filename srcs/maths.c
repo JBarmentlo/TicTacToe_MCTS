@@ -15,7 +15,7 @@ int     base_conv(char c)
 // assigns a number to a board considering it a ternary base number (cf base conv)
 // the tranfo is a rotation or symmetry, the board is evaluated after the tranformation
 // basically a base 3 atoi if that makes sense to you
-int		trinary_board(char *board, char *tranfo)
+int		trinary_board(const char *board, const char *tranfo)
 {
 	int		result = 0;
 	int		i = -1;
@@ -29,7 +29,7 @@ int		trinary_board(char *board, char *tranfo)
 }
 
 // looks for the transformation resulting in the smallest output for trinary_board and returns that value;
-int     smallest_value(char *board)
+int     smallest_value(const char *board)
 {
     int result;
     int tampoun;
@@ -49,7 +49,7 @@ int     smallest_value(char *board)
 }
 
 //will print the combination of two transformations on terminal.
-void    print_rots(char *first, char *second)
+void    print_rots(const char *first, const char *second)
 {
     int i;
 

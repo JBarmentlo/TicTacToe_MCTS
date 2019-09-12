@@ -18,7 +18,7 @@ char    *init_board(void)
     return (out);
 }
 
-char    *copy_board(char *board)
+char    *copy_board(const char *board)
 {
     char *out;
     int  i;
@@ -93,7 +93,7 @@ char    check_winner(const char *board)
 }
 
 // updates win_scores. 'O' plays on odd turns hence the modulos everywhere;
-void    add_win(char winner, char* board, int depth)
+void    add_win(char winner, const char* board, int depth)
 {
     int smallest_val;
 

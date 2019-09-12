@@ -34,7 +34,7 @@ int     *futures(char *board, int turns)
     return (futures);
 }
 
-int     rand_move(char *board)
+int     rand_move(const char *board)
 {
     int move;
     int safe;

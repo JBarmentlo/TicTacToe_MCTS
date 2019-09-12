@@ -91,7 +91,6 @@ int		possible_states_2(void)
 
 void print_state_space_info(void)
 {
-	possible_states();
 	printf("total states: %d\nassuming X starts: %d \nstates after reduction %d\n", possible_states_2(), possible_states(), cardinal_state_space());
 }
 

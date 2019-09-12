@@ -44,7 +44,7 @@ void print_victory(void)
 }
 
 
-void ft_print_board(char *str)
+void ft_print_board(const char *str)
 {
 	int i = -1;
 

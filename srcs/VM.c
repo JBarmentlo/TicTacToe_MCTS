@@ -2,7 +2,7 @@
 
 void	learn(int n)
 {
-	char	*board;
+	char	* restrict board;
 	int		turn;
 
 	while (n--)
@@ -21,7 +21,7 @@ void	learn(int n)
 void	play_against_AI(void)
 {
 	int		turn;
-	char	*board;
+	char	* restrict board;
 
 	while (1)
 	{
@@ -48,7 +48,7 @@ void	play_against_AI(void)
 void	show_game(void)
 {
 	int		turn;
-	char	*board;
+	char	* restrict board;
 
 	board = init_board();
 	turn = 0;
