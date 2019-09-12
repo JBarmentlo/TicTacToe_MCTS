@@ -11,7 +11,7 @@ $(NAME): $(OUT)
 	gcc -I includes -o $(NAME) $(OUT) -lm
 
 out/%.o: srcs/%.c
-	mkdir -p out
+	@ mkdir -p out
 	gcc -I includes -o $@ -c $<
 
 clean:

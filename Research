@@ -1,2 +1,4 @@
 for 10000 games runtime averages 15.9s user 0.10 system (5 attempts)
 with const qualifiers 14.2s user 0.10 system
+
+restrict is useless here as board is our only pointer so no aliasing is possible.
