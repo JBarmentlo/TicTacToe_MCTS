@@ -75,7 +75,6 @@ int	is_possible_2(char *board)
 int		possible_states_2(void)
 {
 	char	*board;
-	int		state;
 	int		count;
 
 	count = 0;

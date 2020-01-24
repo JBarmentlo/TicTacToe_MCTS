@@ -65,6 +65,7 @@ void     do_move_from_key(char *board, char player)
     int     pos;
 
 	in = 0;
+	pos = 0; //to shut compiler up, pos is never accessed before being assigned a value in while loop
 	while ((in < '1' - 48 || in > '9' - 48) || is_valid_move(board, pos) == 0)
     {
 		in = getchar() - 48;

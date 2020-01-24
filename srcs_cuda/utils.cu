@@ -8,7 +8,7 @@ char    *init_board(void)
     int     i;
 
     i = 0;
-    out = malloc(9);
+    out = (char*)malloc(9);
 
     while (i < 9)
     {
@@ -23,7 +23,7 @@ char    *copy_board(char *board)
     char *out;
     int  i;
 
-    out = malloc(9);
+    out = (char*)malloc(9);
     i = 0;
     while (i < 9)
     {
