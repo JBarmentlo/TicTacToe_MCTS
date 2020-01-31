@@ -4,9 +4,8 @@ Discovering MCTS and UCT with TicTacToe. Simple game for fast learning and feedb
 The way it works :
 We use Monte-Carlo Tree Search in combination with Upper Confidence bounds for exploration.
 To teach it we go through playoffs agains itself. At every turn the MCTS algorithm is launched 10 times with that board state as root then the move with the highest
-UCB1 is played (possible improvment: exploration really shouldn't be a factor in that selection so only winrate should be considered).
-The space of states was simplified through symmetries and rotations as they have no impact on the optimal move. All states that differ only through 
-one of these transformations are considered the same state.
+UCB1 is played (possible improvment: exploration really shouldn't be as much of a factor in the final selection and we should move towards exploitation as we iterate).
+The space of states was simplified through symmetries and rotations as they have no impact on the optimal move. All states that differ only through one of these transformations are considered the same state.
 
 To use this method we need to store the number of visits and wins for every state visited by our algorithm;
 actually making a tree seemed inneficient as different paths can lead to the same node. We would have, for every state,
@@ -25,4 +24,4 @@ optimal C, for how many iterations ?
 iterations_per turn ?
 child node priority ?
 learning from root vs what i do now ?
-how to rate all of this, rate against our trained AI, or against all possible games (9! is pretty big) ?
+how to rate and quantifyperformance ?
