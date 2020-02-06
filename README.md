@@ -1,13 +1,13 @@
 # TicTacToe_MCTS
-Discovering MCTS and UCT with TicTacToe. Simple game for fast learning and feedback, also the optimal strategy is known allowing an evaluation of the end result.
+Discovering MCTS and UCT with TicTacToe. We chose a simple game for fast learning and feedback, also the optimal strategy is known allowing an evaluation of the end result.
 
 The way it works :
 We use Monte-Carlo Tree Search in combination with Upper Confidence bounds for exploration.
 To teach it we go through playoffs agains itself. At every turn the MCTS algorithm is launched 10 times with that board state as root then the move with the highest
 UCB1 is played (possible improvment: exploration really shouldn't be as much of a factor in the final selection and we should move towards exploitation as we iterate).
-The space of states was simplified through symmetries and rotations as they have no impact on the optimal move. All states that differ only through one of these transformations are considered the same state.
+The space of board states was simplified through symmetries and rotations as they have no impact on the optimal move. All states that differ only through these transformations are considered the same state.
 
-To use this method we need to store the number of visits and wins for every state visited by our algorithm;
+To use this method we need to store the number of visits and wins for every board state visited by our algorithm;
 actually making a tree seemed inneficient as different paths can lead to the same node. We would have, for every state,
 to look through this level of the tree to look for an identical state. To do that efficiently we'd make a hash table,
 so we just made a hash table. This is possible because the path to a board has no effect, only the state of the board
