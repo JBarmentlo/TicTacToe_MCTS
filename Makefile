@@ -1,12 +1,12 @@
-NAME=TicTacToe
-SOURCES=main.c maths.c moves.c print.c UTC.c utils.c VM.c eval_test.c
-SOURCES_CUDA=main.cu maths.cu moves.cu print.cu UTC.cu utils.cu VM.cu eval_test.cu
-INCLUDES=head.h maths.h
-OUT= $(addprefix out/, $(SOURCES:.c=.o))
-SRCS= $(addprefix srcs/, $(SOURCES))
+NAME = TicTacToe
+SOURCES = main.c maths.c moves.c print.c UTC.c utils.c VM.c eval_test.c
+SOURCES_CUDA = main.cu maths.cu moves.cu print.cu UTC.cu utils.cu VM.cu eval_test.cu
+INCLUDES = head.h maths.h
+OUT = $(addprefix out/, $(SOURCES:.c=.o))
+SRCS = $(addprefix srcs/, $(SOURCES))
 
-OUT_CUDA= $(addprefix out_cuda/, $(SOURCES_CUDA:.cu=.o))
-SRCS_CUDA= $(addprefix srcs_cuda/, $(SOURCES_CUDA))
+OUT_CUDA = $(addprefix out_cuda/, $(SOURCES_CUDA:.cu=.o))
+SRCS_CUDA = $(addprefix srcs_cuda/, $(SOURCES_CUDA))
 
 all: $(NAME)
 

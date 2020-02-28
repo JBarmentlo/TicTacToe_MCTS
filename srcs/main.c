@@ -4,7 +4,7 @@ int main(void)
 {
 	int it = 1;
 	
-	while (it <= 5)
+	while (it <= 20)
 	{
 		learn(2000);
 		show_game();
@@ -12,6 +12,6 @@ int main(void)
 		it++;
 	}
 	
-//	play_against_AI();
+	play_against_AI();
   return (0);
 }

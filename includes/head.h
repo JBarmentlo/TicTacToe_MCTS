@@ -16,7 +16,7 @@
 # define DRAW         		1
 # define LOSS         		0
 
-# define ITERATION_PER_TURN	10
+# define ITERATION_PER_TURN	1
 
 #define C_EXPLO         	1.41421356237
 
