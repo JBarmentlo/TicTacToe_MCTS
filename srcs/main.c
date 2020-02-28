@@ -1,11 +1,7 @@
 #include "head.h"
 
-int main(void) {
-	char *board;
-
-	int move;
-
-	int turn;
+int main(void) 
+{
 	int it = 1;
 	
 	while (it <= 10)
