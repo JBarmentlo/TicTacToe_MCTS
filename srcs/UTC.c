@@ -45,6 +45,37 @@ int		choose_move(char *board, int turn)
 	return (next_mov);
 }
 
+int		choose_move_new(char *board, int turn, int *db_ptr)
+{
+	int	*future = futures(board, turn);
+	int nb_now = db_ptr[(2 * smallest_value(board)) + 1];
+	int is_leaf = 1;
+	double tmp = 0;
+	double res = 0;
+
+	int next_mov = 0;
+	int i = -1;
+	while (!(is_valid_move(board, next_mov)))
+		next_mov++;
+	while (++i < 9)
+	{
+		if (future[i] != 0)
+		{
+			res = UCB1(nb_now, db_ptr[2 * future[i] + 1], db_ptr[2 * future[i]]);
+            if (res != 1000000000000.0)
+				is_leaf = 0;
+			if ((tmp < res))
+			{
+				tmp = res;
+				next_mov = i;
+			}
+		}
+	}
+	if (is_leaf)
+		return (-1);
+	return (next_mov);
+}
+
 //simulates random playout and returns winner as char
 char 	simulation(char *board, int turn)
 {

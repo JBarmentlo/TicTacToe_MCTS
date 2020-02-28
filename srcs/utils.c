@@ -45,6 +45,12 @@ int     *db(int i)
     return (&db[2 * i]);
 }
 
+int     *db2(int i)
+{
+    static int db2[2 * 17141];
+    return (&db2[2 * i]);
+}
+
 void    print_db(void)
 {
 	int	ite = -1;

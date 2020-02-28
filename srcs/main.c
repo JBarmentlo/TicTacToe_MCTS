@@ -2,6 +2,10 @@
 
 int main(void) 
 {
+	make_perfect_db();
+	score();
+
+/*
 	int it = 1;
 	
 	while (it <= 20)
@@ -13,5 +17,6 @@ int main(void)
 	}
 	
 	play_against_AI();
+	*/
   return (0);
 }

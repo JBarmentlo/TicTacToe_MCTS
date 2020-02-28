@@ -44,7 +44,7 @@ int		trinary_board(char *board, char *tranfo);
 int		trinary_board_i(char *board, int morph_index);
 
 int 	win_score_c(char winner, int turn);
-int 	win_score(char *board, int turn);
+int 	win_score(const char *board, int turn);
 void    add_win(char winner, char* board, int depth);
 
 int     *futures(char *board, int turns);
@@ -65,7 +65,17 @@ void	play_against_AI(void);
 void	show_game(void);
 void	learn(int n);
 
-void print_state_space_info(void);
+void 	print_state_space_info(void);
+
+// scoring
+
+void	score(void);
+int		play_against_perfect();
+void	make_perfect_db();
+void	copy_db(void *db1, void *db2);
+int     *db2(int i);
+
+
 
 #define is_valid_move(board, pos) board[pos] == PLAY_NONE
 
