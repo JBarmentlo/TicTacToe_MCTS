@@ -1,1 +1,16 @@
-for 10000 games times range between 15.68 and 16.18. 0.8 0.13 system (5 attempts)
+Expansion plan :
+
+I mean to improve on this project and document this progress in a "research-like" manner.
+First i need a way to store/load the "intelligence" resulting from a learning experience.
+Then I need a performance metric, which is harder than in seems as it will always play the same game if pitted against the same intelligence.
+We could:
+	train n agents in the same way and average their performance against a reference player (who plays perfectly).
+	evaluate their performance in a large amaount of randomly generated starting positions.
+
+The first option seems more promising as these random positions may remain (almost) unexplored during learning and the agents capacity to take good
+decisions in these states does not reflect it's capacity to fullfil its intended purpose.
+
+After this is setup i will explore different ways to paralellize the problem (n-leaf, n-branch, n-tree) and qualify their pros and cons.
+
+Also we will have to store many such "AIs" hence a more compact way to store them may be usefull (computation vs space tradeoff to be determined)
+
