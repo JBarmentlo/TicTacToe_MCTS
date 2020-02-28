@@ -74,6 +74,10 @@ int		play_against_perfect();
 void	make_perfect_db();
 void	copy_db(void *db1, void *db2);
 int     *db2(int i);
+int		choose_move_new(char *board, int turn, int *db_ptr);
+void 	reset_dbseru(int *dbseru);
+int		who_wins(int *db1, int *db2);
+
 
 
 

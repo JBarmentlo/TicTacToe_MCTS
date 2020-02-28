@@ -1,8 +1,10 @@
 #include "head.h"
+#include "stdio.h"
 
 int main(void) 
 {
 	make_perfect_db();
+	printf("sdfsdf");
 	score();
 
 /*

@@ -140,3 +140,4 @@ int     win_score_c(char winner, int turn)
         return (LOSS);
     return (0);
 }
+
