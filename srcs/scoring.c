@@ -1,8 +1,21 @@
 #include "head.h"
+#include "stdlib.h"
 
 #define	PRECISION	10
 #define	NB_STEPS	50
 #define	LEARN_STEP	10
+
+void	zero_array(void *ptr, size_t size)
+{
+	size_t j;
+
+	j = 0;
+	while (j < size)
+	{
+		((char*)ptr)[j] = 0;
+		j++;
+	}
+}
 
 void	score(void)
 {
@@ -10,6 +23,9 @@ void	score(void)
 	int		k;
 	int 	results[NB_STEPS];
 	double	results_double[NB_STEPS];
+
+	zero_array(results, NB_STEPS * sizeof(int));
+	zero_array(results_double, NB_STEPS * sizeof(double));
 
 	j = 0;
 	while (j < PRECISION)
@@ -21,11 +37,11 @@ void	score(void)
 			results[k] += who_wins(db(0), db2(0));
 			k++;
 		}
-		reset_dbseru(db(0));
-		printf("%d\n", j);
+		reset_dbseru(db(0));	//THIS BUGS
+		printf("oy: %d\n", j);
 		j++;
 	}
-	
+	printf("ASUJHBASDF");
 	j = 0;
 	while (j < NB_STEPS)
 	{
@@ -33,7 +49,6 @@ void	score(void)
 		printf("%f, ", results_double[j]);
 		j++;
 	}
-	return;
 }
 
 void	copy_db(void *db1, void *db2)
@@ -58,12 +73,13 @@ void	copy_db(void *db1, void *db2)
 void reset_dbseru(int *dbseru)
 {
 	int i = 0;
-	while (i < 2 * 17141)
+	while (i < 2 * 17140)
 	{
 		dbseru[i] = 0;
 		i++; 
 	}
 }
+
 void	make_perfect_db(void)
 {
 	int	j;
@@ -76,7 +92,6 @@ void	make_perfect_db(void)
 		j++;
 	}
 	copy_db(db(0), db2(0));
-	printf("UYGASDIUYGASD\n");
 }
 
 int		who_wins(int *db1, int *db2)
@@ -99,6 +114,7 @@ int		who_wins(int *db1, int *db2)
 		{
 			do_move(board, choose_move_new(board, turn, db2), turn % 2 ? 'O' : 'X');
 		}
+		turn++;
 	}
 
 	if (check_winner(board) == '.')	{
@@ -118,6 +134,7 @@ int		who_wins(int *db1, int *db2)
 		{
 			do_move(board, choose_move_new(board, turn, db1), turn % 2 ? 'O' : 'X');
 		}
+		turn++;
 	}
 	if (check_winner(board) == '.')	{
 		draws += 1;
