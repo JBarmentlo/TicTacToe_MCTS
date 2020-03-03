@@ -1,0 +1,14 @@
+Looking for different ways to paralellize the MCTS process using CUDA C on a GPU.
+It came to my attention the code is clunky and not so adaptable and decided to re write It
+to allow me greater freedom of execution later and to adapt the code to use the scarce
+GPU ressources I have at my disposal efficiently.
+
+I want:
+	- The process to be able to fit in shared memory (faster but 48k limit)
+	- it to run fully on GPU. (so root paralellisation is possible)
+	- Speed
+	- To set a timeout to simulate real life situation.
+
+
+IDEAS
+	use powers of 4 instead of 3 to use bitshifts for smallest value
