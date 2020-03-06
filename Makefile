@@ -1,5 +1,5 @@
 NAME = TicTacToe
-SOURCES = 
+SOURCES = main.c utils.c smallest_value.c db.c
 SOURCES_CUDA = main.cu maths.cu moves.cu print.cu UTC.cu utils.cu VM.cu eval_test.cu
 INCLUDES = head.h maths.h
 OUT = $(addprefix out/, $(SOURCES:.c=.o))

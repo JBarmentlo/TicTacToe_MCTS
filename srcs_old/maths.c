@@ -3,11 +3,11 @@
 
 int     base_conv(char c)
 {
-	if (c == PLAY_NONE)
+	if (c == PLAYER_NONE)
 		return (0);
-	if (c == PLAY_ONE)
+	if (c == PLAYER_ONE)
 		return (1);
-	if (c == PLAY_TWO)
+	if (c == PLAYER_TWO)
 		return (2);
 	return (-1);
 }

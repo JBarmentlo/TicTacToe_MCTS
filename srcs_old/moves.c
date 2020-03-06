@@ -20,7 +20,7 @@ int     *futures(char *board, int turns)
     int         pos = 0;
 
     reset_futures(futures);
-    player = turns % 2 ? PLAY_TWO : PLAY_ONE;
+    player = turns % 2 ? PLAYER_TWO : PLAYER_ONE;
     while (pos < 9)
     {
         if (is_valid_move(board, pos))

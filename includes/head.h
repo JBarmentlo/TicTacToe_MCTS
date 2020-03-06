@@ -8,9 +8,9 @@
 #include <stdio.h>
 #include "maths.h"
 
-# define PLAY_ONE			'X'
-# define PLAY_TWO			'O'
-# define PLAY_NONE			'.'
+# define PLAYER_ONE			1
+# define PLAYER_TWO			2
+# define PLAYER_NONE		0
 
 # define WIN          		2
 # define DRAW         		1
@@ -18,7 +18,7 @@
 
 # define ITERATION_PER_TURN	10
 
-#define C_EXPLO         	1.41421356237
+# define C_EXPLO         	1.41421356237
 
 # define PURPLE				"\033[95m"
 # define BLUE				"\033[94m"
@@ -29,44 +29,28 @@
 # define BOLD				"\033[1m"
 # define UNDERLINE			"\033[4m"
 
+# define DB_SIZE			850
 
+typedef struct	s_state
+{
+	int				smallest_value;
+	unsigned int	wins;
+	unsigned int	visits;
+	struct s_node	*next;
+	char			board[9];
+}				state;
 
 char    *init_board(void);
-char    *copy_board(char *board);
-void	ft_print_board(char *str);
-
+int     base_conv(char c);
 char    check_winner(const char *board);
-void    do_move_from_key(char *board, char player);
-void    do_move(char *board, int pos, char player);
-
-int     smallest_morph(char *board);
 int		trinary_board(char *board, char *tranfo);
-int		trinary_board_i(char *board, int morph_index);
+int     smallest_value(char *board, char **transfos);
+char	**make_transformations_array();
+void	free_transformations_array(char **tab);
+state	*make_state_db(void);
 
-int 	win_score_c(char winner, int turn);
-int 	win_score(char *board, int turn);
-void    add_win(char winner, char* board, int depth);
 
-int     *futures(char *board, int turns);
-int		rand_move(char *board);
-int		choose_move(char *board, int turn);
 
-char	MCTS(char *board, int turn);
-char	MCTS_loud(char *board, int turn);
-int		MCTS_call(char *board, int turn);
 
-int     *db(int i);
-void	print_db(void);
-int     count_non_zeroes_db(void);
-void 	print_victory(void);
-void 	print_defeat(void);
-
-void	play_against_AI(void);
-void	show_game(void);
-void	learn(int n);
-
-void print_state_space_info(void);
-
-#define is_valid_move(board, pos) board[pos] == PLAY_NONE
 
 #endif
